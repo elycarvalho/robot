@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<meta name="author" content="Ely Carvalho da Silva">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Robot</title>
+</head>
+<body>
+  <main>
+    <div class="base">
+    	<div class="base-img"></div>
+    </div>
+
+    <div class="braco1">
+    	<div class="braco1-img"></div>
+    	<div class="braco2">
+    	<div class="braco2-img">
+    		<div class="pinca">
+    			<div class="ponta-pinca1"></div>
+    			<div class="ponta-pinca2"></div>
+    		</div>
+    	</div>
+    </div>
+    
+  </main>	
+  <div class="painel">
+    <button onclick="moveBraco1('sobe')">A</button>
+    <button onclick="moveBraco1('desce')">B</button>
+    <button onclick="moveBraco2('sobe')">C</button>
+    <button onclick="moveBraco2('desce')">D</button>
+    <button onclick="movePinca('sobe')">E</button>
+    <button onclick="movePinca('desce')">F</button>
+    <button onclick="movePonta('abre')">G</button>
+    <button onclick="movePonta('fecha')">H</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Roboto', arial, sans-serif;
+}
+
+main{
+	position: relative;
+	margin: 20px auto;
+	width: 700px;
+	height: 600px;
+    border: 1px solid lightgray;
+}
+
+.base{
+	position: absolute;
+	bottom: 0px;
+	left: 20px;
+	width: 150px;
+	height: 80px;
+	border: 1px solid orange;
+	border-radius: 10px 10px 0 0;
+}
+
+.braco1{
+	position: absolute;
+	bottom: -200px;
+	left: 55px;
+	width: 80px;
+	height: 600px;	
+}
+
+.braco1-img{
+	width: 100%;
+	height: 50%;
+	background-color: gray;
+	border-radius: 50px;
+}
+
+.braco2{
+	position: absolute;
+	left: -36px;
+	bottom: 260px;
+	width: 80px;
+	height: 600px;
+	
+	transform: rotate(90deg);
+}
+
+.braco2-img{
+	width: 100%;
+	height: 50%;
+	background-color: darkblue;
+	opacity: 0.5;
+	border-radius: 50px;
+}
+
+.painel{
+	width: 500px;
+	margin: 5px auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+.painel button{
+	width: 40px;
+	height: 25px;
+}
+
+.pinca{
+	position: relative;
+	bottom: 100px;
+	left: -5px;
+	width: 100px;
+	height: 100px;
+	background-color: orange;
+	opacity: 0.7;
+	border-radius: 20%;
+}
+
+.ponta-pinca1{
+	width: 40px;
+	height: 100px;
+	position: relative;
+	left: 10px;
+	bottom: 100px;
+	background-color: darkblue;
+	border-radius: 5px;
+}
+
+.ponta-pinca2{
+	width: 40px;
+	height: 100px;
+	position: relative;
+	left: 55px;
+	bottom: 200px;
+	background-color: blue;
+	border-radius: 5px;
+}
+
+
+
+
