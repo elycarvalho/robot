@@ -6,7 +6,7 @@ const pontaPinca2 = document.querySelector('.ponta-pinca2')
 let movimentoB1 = 0
 let movimentoB2 = 90
 let movimentoPinca = 0
-let movimentoPonta = 55
+let movimentoPonta = 50
 let movimentoPonta2 = 10
 
 function moveBraco1(movimento){
@@ -90,5 +90,11 @@ document.addEventListener('keydown', (e) => {
             break
         case 'd':
             movePinca('desce')
+            break
+        case 'z':
+            movePonta('abre')
+            break
+        case 'c':
+            movePonta('fecha')
     }
 })
