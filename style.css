@@ -6,7 +6,6 @@
 
 body{
 	font-family: 'Roboto', arial, sans-serif;
-	overflow: hidden;
 }
 
 main{
@@ -116,6 +115,17 @@ main{
 	border: 1px solid red;
 	border-radius: 7px 7px 2px 2px;
 	transform: rotate(180deg);
+}
+
+.objetoM{
+	position: absolute;
+	top: 345px;
+	left: 370px;
+	width: 26px;
+	height: 44px;
+	border: 1px solid green;
+	background-color: darkgreen;
+	border-radius: 7px 7px 2px 2px;
 }
 
 .mesa{

@@ -4,6 +4,8 @@ const pinca = document.querySelector('.pinca')
 const pontaPinca = document.querySelector('.ponta-pinca1')
 const pontaPinca2 = document.querySelector('.ponta-pinca2')
 const led = document.querySelector('.led')
+const mesa = document.querySelector('.mesa')
+const main = document.querySelector('main')
 let movimentoB1 = 0
 let movimentoB2 = 90
 let movimentoPinca = 0
@@ -132,6 +134,10 @@ function capturar(){
 }
 
 function soltar(){
-    
-        alert('soltar')
+    objetoC.remove()
+    objetoM = document.createElement('div')
+    objetoM.className = "objetoM"
+    main.appendChild(objetoM)
+    led.style.backgroundColor = '#44704A'
+    console.log(objetoM)
 }
