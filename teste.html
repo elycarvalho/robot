@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<meta name="author" content="Ely Carvalho">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Robot</title>
+</head>
+<body>
+   <button onclick="play()">exec</button>
+
+<script>
+  let arrayTest = []
+  let movimento = 20
+  let movimento2 = 12
+
+  arrayTest.push('braco')
+  arrayTest.push(movimento)
+  arrayTest.push('braco2')
+  arrayTest.push(movimento2)
+  arrayTest.push('pinca')
+  arrayTest.push(10)
+  arrayTest.push('ponta')
+  arrayTest.push(40)
+  arrayTest.push('ponta2')
+  arrayTest.push(33)
+
+let index = 0
+
+let intervalo = setInterval(play, 1000)
+
+function play(){
+  if(index === arrayTest.length){clearInterval(intervalo)}
+  console.log(arrayTest[index])
+  index++
+  console.log(arrayTest[index])
+  index++
+
+}
+  
+</script>
+</body>
+</html>
