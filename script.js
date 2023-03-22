@@ -6,6 +6,8 @@ const pontaPinca2 = document.querySelector('.ponta-pinca2')
 const led = document.querySelector('.led')
 const mesa = document.querySelector('.mesa')
 const main = document.querySelector('main')
+let gravaMovimentos = []
+let statusGrava = 'off'
 let movimentoB1 = 0
 let movimentoB2 = 90
 let movimentoPinca = 0
@@ -16,19 +18,21 @@ const objeto = document.querySelector('.objeto')
 function moveBraco1(movimento){
     if(movimentoB2 > 90 && movimentoB1 > 18) {movimentoB1 = 18}
     if(movimento === 'desce'){
-        
         if(movimentoB1 > 32) {movimentoB1 = 32}
         movimentoB1 = movimentoB1 + 2
         braco1.style.transform = `rotate(${movimentoB1}deg)`
-        
         console.log('braço 1 D ' + movimentoB1)
+        console.log(braco1.style.transform = `rotate(${movimentoB1}deg)`)
     }
     if(movimento === 'sobe'){
         movimentoB1 = movimentoB1 - 2
         if(movimentoB1  < -18) {movimentoB1 = -18}
         braco1.style.transform = `rotate(${movimentoB1}deg)`
         console.log('braço 1 S ' + movimentoB1)
-    }  
+    } 
+
+    gravaMovimentos.push('braco1')
+    gravaMovimentos.push(movimentoB1)
 }
 
 function moveBraco2(movimento){
@@ -44,6 +48,8 @@ function moveBraco2(movimento){
         braco2.style.transform = `rotate(${movimentoB2}deg)`
         console.log('braço 2 S' + movimentoB2)
     }
+    gravaMovimentos.push('braco2')
+    gravaMovimentos.push(movimentoB2)
 }
 
 function movePinca(movimento){
@@ -57,6 +63,8 @@ function movePinca(movimento){
         pinca.style.transform = `rotate(${movimentoPinca}deg)`    
         console.log('giro pinça D ' + movimentoPinca)
     }
+    gravaMovimentos.push('pinca')
+    gravaMovimentos.push(movimentoPinca)
 }
 
 function movePonta(movimento){
@@ -72,8 +80,7 @@ function movePonta(movimento){
             soltar()
         }
         console.log('abre 1 ' + movimentoPonta)
-        console.log('abre 2 ' + movimentoPonta2)
-        
+        console.log('abre 2 ' + movimentoPonta2)   
     }
     if(movimento === 'fecha'){
         movimentoPonta++
@@ -89,6 +96,11 @@ function movePonta(movimento){
         console.log('fecha 1 ' + movimentoPonta)
         console.log('fecha 2 ' + movimentoPonta2)     
     }
+
+    gravaMovimentos.push('pontaPinca')
+    gravaMovimentos.push(movimentoPonta2)
+    gravaMovimentos.push('pontaPinca2')
+    gravaMovimentos.push(movimentoPonta)
 }
 
 document.addEventListener('keydown', (e) => {
@@ -127,10 +139,8 @@ function capturar(){
         objetoC = document.createElement('div')
         objetoC.className = "objetoC"
         pinca.appendChild(objetoC)
-        led.style.backgroundColor = '#51EC66'
-        console.log('capturou')
-        
-    } else {alert('fora da posição!')}
+        led.style.backgroundColor = '#51EC66' 
+    }
 }
 
 function soltar(){
@@ -140,4 +150,36 @@ function soltar(){
     main.appendChild(objetoM)
     led.style.backgroundColor = '#44704A'
     console.log(objetoM)
+}
+
+let intervalo = ''
+let index = 0
+
+function playMoves(){
+    intervalo = setInterval(playMovimento, 20)
+    index = 0
+}
+
+
+function playMovimento(){
+    if(index === gravaMovimentos.length){clearInterval(intervalo)}
+    switch(gravaMovimentos[index]){
+        case 'braco1':
+            braco1.style.transform = `rotate(${gravaMovimentos[(index + 1)]}deg)`
+            break
+        case 'braco2':
+            braco2.style.transform = `rotate(${gravaMovimentos[(index + 1)]}deg)`
+            break
+        case 'pinca':
+            pinca.style.transform = `rotate(${gravaMovimentos[(index + 1)]}deg)`
+            break
+        case 'pontaPinca':
+            pontaPinca.style.left = `${gravaMovimentos[(index + 1)]}px`
+            break
+        case 'pontaPinca2':
+            pontaPinca2.style.left = `${gravaMovimentos[(index + 1)]}px`
+    }
+
+    index++
+
 }
