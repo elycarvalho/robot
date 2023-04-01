@@ -6,6 +6,7 @@ const pontaPinca2 = document.querySelector('.ponta-pinca2')
 const led = document.querySelector('.led')
 const mesa = document.querySelector('.mesa')
 const main = document.querySelector('main')
+const btnGrava = document.querySelector('.btn-grava')
 let gravaMovimentos = []
 let statusGrava = 'off'
 let movimentoB1 = 0
@@ -13,7 +14,8 @@ let movimentoB2 = 90
 let movimentoPinca = 0
 let movimentoPonta = 5
 let movimentoPonta2 = 65
-const objeto = document.querySelector('.objeto')
+let objeto = document.querySelector('.objeto')
+let objetoM = document.querySelector('.objetoM')
 
 function moveBraco1(movimento){
     if(movimentoB2 > 90 && movimentoB1 > 18) {movimentoB1 = 18}
@@ -30,9 +32,10 @@ function moveBraco1(movimento){
         braco1.style.transform = `rotate(${movimentoB1}deg)`
         console.log('braço 1 S ' + movimentoB1)
     } 
-
-    gravaMovimentos.push('braco1')
-    gravaMovimentos.push(movimentoB1)
+    if(statusGrava === 'on'){
+        gravaMovimentos.push('braco1')
+        gravaMovimentos.push(movimentoB1)
+    }
 }
 
 function moveBraco2(movimento){
@@ -48,8 +51,10 @@ function moveBraco2(movimento){
         braco2.style.transform = `rotate(${movimentoB2}deg)`
         console.log('braço 2 S' + movimentoB2)
     }
-    gravaMovimentos.push('braco2')
-    gravaMovimentos.push(movimentoB2)
+    if(statusGrava === 'on'){
+        gravaMovimentos.push('braco2')
+        gravaMovimentos.push(movimentoB2)
+    }
 }
 
 function movePinca(movimento){
@@ -63,8 +68,10 @@ function movePinca(movimento){
         pinca.style.transform = `rotate(${movimentoPinca}deg)`    
         console.log('giro pinça D ' + movimentoPinca)
     }
-    gravaMovimentos.push('pinca')
-    gravaMovimentos.push(movimentoPinca)
+    if(statusGrava === 'on'){
+        gravaMovimentos.push('pinca')
+        gravaMovimentos.push(movimentoPinca)
+    }
 }
 
 function movePonta(movimento){
@@ -85,8 +92,8 @@ function movePonta(movimento){
     if(movimento === 'fecha'){
         movimentoPonta++
         movimentoPonta2--
-        if(movimentoPonta2 < 45) {movimentoPonta2 = 45}
-        if(movimentoPonta > 25) {movimentoPonta = 25}
+        if(movimentoPonta2 < 50) {movimentoPonta2 = 50}
+        if(movimentoPonta > 20) {movimentoPonta = 20}
 
         if(movimentoPonta === 14 && movimentoB2 > 114){
             capturar()
@@ -96,11 +103,12 @@ function movePonta(movimento){
         console.log('fecha 1 ' + movimentoPonta)
         console.log('fecha 2 ' + movimentoPonta2)     
     }
-
-    gravaMovimentos.push('pontaPinca')
-    gravaMovimentos.push(movimentoPonta2)
-    gravaMovimentos.push('pontaPinca2')
-    gravaMovimentos.push(movimentoPonta)
+    if(statusGrava === 'on'){
+        gravaMovimentos.push('pontaPinca')
+        gravaMovimentos.push(movimentoPonta2)
+        gravaMovimentos.push('pontaPinca2')
+        gravaMovimentos.push(movimentoPonta)
+    }
 }
 
 document.addEventListener('keydown', (e) => {
@@ -139,7 +147,11 @@ function capturar(){
         objetoC = document.createElement('div')
         objetoC.className = "objetoC"
         pinca.appendChild(objetoC)
-        led.style.backgroundColor = '#51EC66' 
+        led.style.backgroundColor = '#51EC66'
+
+        if(statusGrava === 'on'){
+            gravaMovimentos.push('captura')
+        }
     }
 }
 
@@ -149,17 +161,27 @@ function soltar(){
     objetoM.className = "objetoM"
     main.appendChild(objetoM)
     led.style.backgroundColor = '#44704A'
-    console.log(objetoM)
+    
+    if(statusGrava === 'on'){
+        gravaMovimentos.push('solta')
+    }
 }
 
 let intervalo = ''
 let index = 0
 
 function playMoves(){
+    main.removeChild(objetoM)
     intervalo = setInterval(playMovimento, 20)
     index = 0
 }
 
+function gravar(){
+    gravaMovimentos = []
+    statusGrava = 'on'
+    btnGrava.style.backgroundColor = 'red'
+    btnGrava.style.color = '#fff'
+}
 
 function playMovimento(){
     if(index === gravaMovimentos.length){clearInterval(intervalo)}
@@ -178,8 +200,20 @@ function playMovimento(){
             break
         case 'pontaPinca2':
             pontaPinca2.style.left = `${gravaMovimentos[(index + 1)]}px`
+            break
+        case 'captura':
+            objeto.remove()
+            objetoC = document.createElement('div')
+            objetoC.className = "objetoC"
+            pinca.appendChild(objetoC)
+            led.style.backgroundColor = '#51EC66'
+            break
+        case 'solta':
+            objetoC.remove()
+            objetoM = document.createElement('div')
+            objetoM.className = "objetoM"
+            main.appendChild(objetoM)
+            led.style.backgroundColor = '#44704A'
     }
-
     index++
-
 }

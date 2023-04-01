@@ -9,7 +9,7 @@ body{
 }
 
 main{
-	background-image: radial-gradient(#EAF5F3, #C0C1C2);
+	background-image: radial-gradient(#FBFBF7, #E1EEF1);
 	position: relative;
 	margin: 5px auto;
 	width: 550px;
@@ -25,6 +25,7 @@ main{
 	height: 90px;
 	border: 1px solid darkred;
 	border-radius: 50px 50px 0 0;
+	background-image: linear-gradient(#FC5401, #F97322);
 }
 
 .braco1{
@@ -33,9 +34,10 @@ main{
 	left: 65px;
 	width: 50px;
 	height: 200px;	
-	border: 1px solid red;
+	border: 1px solid darkred;
 	transform-origin: 25px bottom;
 	border-radius: 25px;
+	background-image: linear-gradient(#FC5401, #F97322);
 }
 
 .braco2{
@@ -45,19 +47,19 @@ main{
 	width: 50px;
 	height: 200px;
 	transform: rotate(90deg);
-	border: 1px solid red;
+	border: 1px solid darkred;
 	transform-origin: 50% 90% 0;
     border-radius: 25px;
+    background-image: linear-gradient(#FC5401, #F97322);
 }
 
 .painel{
-	width: 320px;
-	height: 100px;
+	width: 330px;
+	height: 70px;
 	margin: 5px auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	border: 1px solid gray;
 }
 
 .painel button{
@@ -75,6 +77,7 @@ main{
 	height: 90px;
 	border-radius: 5px 5px 20px 20px;
 	border: 1px solid darkred;
+	background-image: linear-gradient(#FEA914, #FCB943);
 }
 
 .ponta-pinca1{
@@ -85,6 +88,7 @@ main{
 	bottom: 70px;
 	border-radius: 5px 5px 0 0;
 	border: 1px solid #565656;
+	background-image: linear-gradient(90deg, #DDE4FA, #BCBCBC);
 }
 
 .ponta-pinca2{
@@ -95,6 +99,7 @@ main{
 	bottom: 140px;
 	border-radius: 5px 5px 0 0;
 	border: 1px solid #565656;
+	background-image: linear-gradient(90deg, #DDE4FA, #BCBCBC);
 }
 
 .objeto{
@@ -103,8 +108,9 @@ main{
 	left: 250px;
 	width: 26px;
 	height: 44px;
-	border: 1px solid #000;
+	border: 1px solid #686969;
 	border-radius: 7px 7px 2px 2px;
+	background-image: linear-gradient(90deg, #B6B9B8, #EEF1F0 ,#B6B9B8);
 }
 
 .objetoC{
@@ -113,9 +119,10 @@ main{
 	left: 32px;
 	width: 26px;
 	height: 44px;
-	border: 1px solid red;
+	border: 1px solid #686969;
 	border-radius: 7px 7px 2px 2px;
 	transform: rotate(180deg);
+	background-image: linear-gradient(90deg, #B6B9B8, #EEF1F0 ,#B6B9B8);
 }
 
 .objetoM{
@@ -124,8 +131,8 @@ main{
 	left: 370px;
 	width: 26px;
 	height: 44px;
-	border: 1px solid green;
-	background-color: darkgreen;
+	border: 1px solid #686969;
+	background-image: linear-gradient(90deg, #B6B9B8, #EEF1F0 ,#B6B9B8);
 	border-radius: 7px 7px 2px 2px;
 }
 
@@ -134,8 +141,10 @@ main{
 	bottom: 0;
 	right: 120px;
 	width: 95px;
-	height: 60px;
-	border: 1px solid darkgray;
+	height: 58px;
+	border: 5px solid darkgray;
+	border-bottom: none;
+	border-radius: 5px 5px 0 0;
 }
 
 .led{position: absolute;
@@ -143,7 +152,7 @@ main{
 	top: 10px;
 	width: 15px;
 	height: 15px;
-	border: 1px solid lightgray;
+	border: 1px solid #89BB95;
 	border-radius: 50%;
 	background-color: #44704A;
 }
