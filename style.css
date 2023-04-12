@@ -6,15 +6,47 @@
 
 body{
 	font-family: 'Roboto', arial, sans-serif;
+	background-image: radial-gradient(#BABABA, #A1A5A5, #E9ECEC );
+	background-repeat: repeat-y;
 }
 
 main{
-	background-image: radial-gradient(#FBFBF7, #E1EEF1);
+	background-image: radial-gradient(#ECF5F4, #E1EEF1);
 	position: relative;
 	margin: 5px auto;
 	width: 550px;
 	height: 450px;
     border: 2px solid lightgray;
+}
+
+.moves-panel{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: flex;
+	flex-direction: column;
+	width: 50px;
+	height: 240px;
+}
+
+.moves-panel div{
+	color: #DDEFF3;
+	background-color: #404040;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 50px;
+	height: 45px;
+	border: 1px solid darkslategray;
+}
+
+.moves-panel p{
+	background-color: #F0781B;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 50px;
+	border: 1px solid #2F1704;
 }
 
 .base{
@@ -56,7 +88,7 @@ main{
 .painel{
 	width: 330px;
 	height: 70px;
-	margin: 5px auto;
+	margin: 8px auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -137,12 +169,13 @@ main{
 }
 
 .mesa{
+	background-image: linear-gradient(45deg, #E1EAEA, #C7D4D4, #C3E3E2);
 	position: absolute;
 	bottom: 0;
 	right: 120px;
 	width: 95px;
 	height: 58px;
-	border: 5px solid darkgray;
+	border: 5px solid #93AEAD;
 	border-bottom: none;
 	border-radius: 5px 5px 0 0;
 }
