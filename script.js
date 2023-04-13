@@ -26,6 +26,7 @@ function moveBraco1(movimento){
         if(movimentoB1 > 30) {movimentoB1 = 30}
         movimentoB1++
         braco1.style.transform = `rotate(${movimentoB1}deg)`
+        pnB1.innerHTML = movimentoB1
         console.log('braço 1 D ' + movimentoB1)
         console.log(braco1.style.transform = `rotate(${movimentoB1}deg)`)
     }
@@ -33,6 +34,7 @@ function moveBraco1(movimento){
         movimentoB1--
         if(movimentoB1  < -18) {movimentoB1 = -18}
         braco1.style.transform = `rotate(${movimentoB1}deg)`
+        pnB1.innerHTML = movimentoB1
         console.log('braço 1 S ' + movimentoB1)
     } 
     if(statusGrava === 'on'){
@@ -43,15 +45,17 @@ function moveBraco1(movimento){
 
 function moveBraco2(movimento){
     if(movimento === 'desce'){
-        if(movimentoB2 > 100) {movimentoB2 = 100}
+        if(movimentoB2 > 115) {movimentoB2 = 115}
         movimentoB2++
         braco2.style.transform = `rotate(${movimentoB2}deg)`
+        pnB2.innerHTML = movimentoB2
         console.log('braço 2 D ' + movimentoB2)  
     }
     if(movimento === 'sobe'){
         if(movimentoB2 < 58) {movimentoB2 = 58}
         movimentoB2--
         braco2.style.transform = `rotate(${movimentoB2}deg)`
+        pnB2.innerHTML = movimentoB2
         console.log('braço 2 S' + movimentoB2)
     }
     if(statusGrava === 'on'){
@@ -64,11 +68,13 @@ function movePinca(movimento){
     if(movimento === 'sobe'){
         movimentoPinca++
         pinca.style.transform = `rotate(${movimentoPinca}deg)`
+        pnPin.innerHTML = movimentoPinca
         console.log('giro pinça S ' + movimentoPinca)
     }
     if(movimento === 'desce'){
         movimentoPinca--
-        pinca.style.transform = `rotate(${movimentoPinca}deg)`    
+        pinca.style.transform = `rotate(${movimentoPinca}deg)` 
+        pnPin.innerHTML = movimentoPinca   
         console.log('giro pinça D ' + movimentoPinca)
     }
     if(statusGrava === 'on'){
@@ -85,7 +91,7 @@ function movePonta(movimento){
         if(movimentoPonta < 5) {movimentoPonta = 5}     
         pontaPinca.style.left = `${movimentoPonta2}px`
         pontaPinca2.style.left = `${movimentoPonta}px`
-        
+        pnPon.innerHTML = movimentoPonta
         if(movimentoPonta2 > 56 && movimentoB2 === 56 && movimentoB1 === 34){
             soltar()
         }
@@ -95,9 +101,9 @@ function movePonta(movimento){
     if(movimento === 'fecha'){
         movimentoPonta++
         movimentoPonta2--
-        if(movimentoPonta2 < 45) {movimentoPonta2 = 45}
-        if(movimentoPonta > 25) {movimentoPonta = 25}
-
+        if(movimentoPonta2 < 50) {movimentoPonta2 = 50}
+        if(movimentoPonta > 20) {movimentoPonta = 20}
+        pnPon.innerHTML = movimentoPonta
         if(movimentoPonta === 14 && movimentoB2 > 114){
             capturar()
         }
